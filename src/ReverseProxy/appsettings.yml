@@ -1,0 +1,17 @@
+ReverseProxy:
+    Routes:
+        product-service:
+            ClusterId: product-service
+            Match:
+                Path: 'product-api/{**remainder}'
+            Transforms:
+                - PathRemovePrefix: '/product-api'
+                - PathPrefix: '/'
+                - RequestHeaderOriginalHost: true
+      
+    Clusters:
+        product-service:
+            Destinations:
+                product-service-1:
+                    Address: http://localhost:5001
+        
