@@ -12,7 +12,7 @@ public class InMemoryConfigProvider : IProxyConfigProvider, IHostedService, IDis
     private readonly DiscoveryClient _discoveryClient;
     private readonly RouteConfig[] _routes;
 
-    public InMemoryConfigProvider(IDiscoveryClient discoveryClient, IConfiguration configuration)
+    public InMemoryConfigProvider(IDiscoveryClient discoveryClient, RouteConfig[] routes = null)
     {
         _discoveryClient = discoveryClient as DiscoveryClient;
         // foreach (var section in _configuration.GetSection("Clusters").GetChildren())
@@ -22,7 +22,8 @@ public class InMemoryConfigProvider : IProxyConfigProvider, IHostedService, IDis
         //var routes = proxyConfig.Routes;
         // TODO: Read from appsettings
         //_routes = routes.ToArray();
-
+        _routes = routes;
+        
         PopulateConfig();
     }
 
@@ -40,13 +41,13 @@ public class InMemoryConfigProvider : IProxyConfigProvider, IHostedService, IDis
         {
             var cluster = new ClusterConfig
             {
-                ClusterId = app.Name,
+                ClusterId = app.Name.ToLower(),
                 Destinations = app.Instances
                 .Select(x =>
                     (x.InstanceId,
                         new DestinationConfig()
                         {
-                            Address = $"https://{x.HostName}:{x.SecurePort}"
+                            Address = $"http://{x.HostName.ToLower()}:{x.Port}"
                         }))
                 .ToDictionary(y => y.InstanceId, y => y.Item2)
             };

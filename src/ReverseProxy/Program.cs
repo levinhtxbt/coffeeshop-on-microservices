@@ -1,6 +1,7 @@
 using System.Net;
 using N8T.Infrastructure.OTel;
 using ReverseProxy.Extensions;
+using Steeltoe.Discovery.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.AddOTelLogs()
@@ -10,6 +11,7 @@ builder.WebHost.AddOTelLogs()
     });
 
 builder.Configuration.AddYamlFile("appsettings.yml", optional: false, reloadOnChange: true);
+builder.Services.AddDiscoveryClient();
 builder.Services.AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"))
     .LoadFromDiscoveryService();

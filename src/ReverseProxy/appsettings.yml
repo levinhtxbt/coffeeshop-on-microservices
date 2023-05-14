@@ -18,13 +18,13 @@ ReverseProxy:
                 -   PathRemovePrefix: '/counter-api'
                 -   PathPrefix: '/'
                 -   RequestHeaderOriginalHost: true
-    Clusters:
-        product-service:
-            Destinations:
-                product-service-1:
-                    Address: http://localhost:5001
-        counter-service:
-            Destinations:
-                counter-service-1:
-                    Address: http://localhost:5002
+#    Clusters:
+#        product-service:
+#            Destinations:
+#                product-service-1:
+#                    Address: http://localhost:5001
+#        counter-service:
+#            Destinations:
+#                counter-service-1:
+#                    Address: http://localhost:5002
 
