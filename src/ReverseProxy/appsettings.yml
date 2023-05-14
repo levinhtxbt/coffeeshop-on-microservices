@@ -1,8 +1,4 @@
-Eureka:
-    Client:
-        ShouldRegisterWithEureka: false
-        ServiceUrl: http://localhost:8761/eureka/
-        
+
 ReverseProxy:
     Routes:
         product-service:
