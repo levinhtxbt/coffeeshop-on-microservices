@@ -12,6 +12,7 @@ using N8T.Infrastructure.EfCore;
 using N8T.Infrastructure.OTel;
 using Spectre.Console;
 using System.Net;
+using Steeltoe.Discovery.Client;
 
 AnsiConsole.Write(new FigletText("Counter APIs").Color(Color.MediumPurple));
 
@@ -56,6 +57,7 @@ builder.Services.AddMassTransit(x =>
 
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IItemGateway, ItemRestGateway>();
+builder.Services.AddDiscoveryClient();
 
 var app = builder.Build();
 

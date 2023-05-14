@@ -8,6 +8,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{2C7B92
 		.gitignore = .gitignore
 		api.http = api.http
 		docker-compose.yaml = docker-compose.yaml
+		README.md = README.md
+		src\Libs\packages.props = src\Libs\packages.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{15ADE653-0FE7-4395-9836-71DBA0181630}"

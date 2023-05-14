@@ -1,13 +1,13 @@
 <Project>
 
   <PropertyGroup>
-    <Product>CoffeeShopOnNomad</Product>
-    <Authors>Thang Chung</Authors>
+    <Product>CoffeeShopOnMicroservice</Product>
+    <Authors>Zin</Authors>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/thangchung/coffeeshop-on-nomad.git</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/thangchung/coffeeshop-on-nomad</PackageProjectUrl>
-    <PackageLicense>https://github.com/thangchung/coffeeshop-on-nomad/blob/master/LICENSE</PackageLicense>
-    <Copyright>Copyright (c) Thang Chung - 2022</Copyright>
+    <RepositoryUrl>https://github.com/levinhtxbt/coffeeshop-on-microservices.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/levinhtxbt/coffeeshop-on-microservices</PackageProjectUrl>
+    <PackageLicense>https://github.com/levinhtxbt/coffeeshop-on-microservices/blob/master/LICENSE</PackageLicense>
+    <Copyright>Copyright (c) Zin - 2023</Copyright>
   </PropertyGroup>
 
   <PropertyGroup>

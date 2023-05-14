@@ -1,3 +1,8 @@
+Eureka:
+    Client:
+        ShouldRegisterWithEureka: false
+        ServiceUrl: http://localhost:8761/eureka/
+        
 ReverseProxy:
     Routes:
         product-service:
@@ -8,10 +13,22 @@ ReverseProxy:
                 - PathRemovePrefix: '/product-api'
                 - PathPrefix: '/'
                 - RequestHeaderOriginalHost: true
-      
+                  
+        counter-service:
+            ClusterId: counter-service
+            Match:
+                Path: 'counter-api/{**remainder}'
+            Transforms:
+                -   PathRemovePrefix: '/counter-api'
+                -   PathPrefix: '/'
+                -   RequestHeaderOriginalHost: true
     Clusters:
         product-service:
             Destinations:
                 product-service-1:
                     Address: http://localhost:5001
-        
+        counter-service:
+            Destinations:
+                counter-service-1:
+                    Address: http://localhost:5002
+

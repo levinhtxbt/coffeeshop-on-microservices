@@ -36,6 +36,8 @@
         <PackageReference Include="Polly" />
         <PackageReference Include="Scrutor" />
         <PackageReference Include="Spectre.Console" />
+        <PackageReference Include="Steeltoe.Common.Hosting" />
+        <PackageReference Include="Steeltoe.Discovery.Eureka" />
         <PackageReference Include="Swashbuckle.AspNetCore" />
         <PackageReference Include="RestEase" />
         <PackageReference Include="RestEase.HttpClientFactory" />

@@ -9,12 +9,19 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="NetEscapades.Configuration.Yaml" />
         <PackageReference Include="Yarp.ReverseProxy" />
         <PackageReference Include="MinVer" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Libs\N8T.Infrastructure\N8T.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="appsettings.yml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

@@ -1,11 +1,16 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+﻿#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
+COPY ["NuGet.Config", "."]
+COPY ["Directory.Packages.props", "."]
 COPY ["src/ReverseProxy/ReverseProxy.csproj", "src/ReverseProxy/"]
+COPY ["src/Libs/N8T.Infrastructure/N8T.Infrastructure.csproj", "src/Libs/N8T.Infrastructure/"]
+COPY ["src/Libs/N8T.Core/N8T.Core.csproj", "src/Libs/N8T.Core/"]
 RUN dotnet restore "src/ReverseProxy/ReverseProxy.csproj"
 COPY . .
 WORKDIR "/src/src/ReverseProxy"
