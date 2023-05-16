@@ -3,11 +3,13 @@
 	"name": "dotnet",
     "image": "mcr.microsoft.com/devcontainers/dotnet:0-7.0",
 	"extensions": [
-        "ms-dotnettools.csharp",
-        "mutantdino.resourcemonitor",
-        "humao.rest-client",
-        "GitHub.copilot"
-    ],
+		"ms-dotnettools.csharp",
+		"mutantdino.resourcemonitor",
+		"humao.rest-client",
+		"GitHub.copilot",
+		"vscode-icons-team.vscode-icons",
+		"kreativ-software.csharpextensions"
+	],
 	
 	"postCreateCommand": "./init.sh",
     "features": {
