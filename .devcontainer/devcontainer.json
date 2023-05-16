@@ -8,7 +8,8 @@
 		"humao.rest-client",
 		"GitHub.copilot",
 		"vscode-icons-team.vscode-icons",
-		"kreativ-software.csharpextensions"
+		"kreativ-software.csharpextensions",
+		"zhuangtongfa.material-theme"
 	],
 	
 	"postCreateCommand": "./init.sh",
