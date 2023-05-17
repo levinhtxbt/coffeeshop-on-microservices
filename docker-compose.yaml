@@ -32,6 +32,8 @@ services:
             - AspNetCoreInstrumentation__RecordException=true
             - Otlp__Endpoint=http://otel-collector:4317
             - Eureka__Client__ServiceUrl=http://eureka-server:8761/eureka
+            - Eureka__Instance__HostName=product-service
+            - Eureka__Instance__Port=5001
         ports:
             - "5001:5001"
         restart: always
@@ -54,6 +56,8 @@ services:
             - AspNetCoreInstrumentation__RecordException=true
             - Otlp__Endpoint=http://otel-collector:4317
             - Eureka__Client__ServiceUrl=http://eureka-server:8761/eureka
+            - Eureka__Instance__HostName=counter-service
+            - Eureka__Instance__Port=5002
         ports:
             - "5002:5002"
         depends_on:
