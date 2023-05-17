@@ -31,6 +31,7 @@ services:
             - UseLogExporter=otlp
             - AspNetCoreInstrumentation__RecordException=true
             - Otlp__Endpoint=http://otel-collector:4317
+            - Eureka__Client__ServiceUrl=http://eureka-server:8761/eureka
         ports:
             - "5001:5001"
         restart: always
@@ -52,6 +53,7 @@ services:
             - UseLogExporter=otlp
             - AspNetCoreInstrumentation__RecordException=true
             - Otlp__Endpoint=http://otel-collector:4317
+            - Eureka__Client__ServiceUrl=http://eureka-server:8761/eureka
         ports:
             - "5002:5002"
         depends_on:
@@ -115,14 +117,14 @@ services:
             dockerfile: ./src/ReverseProxy/Dockerfile
         environment:
             - ASPNETCORE_ENVIRONMENT=Development
-            - ReverseProxy__Clusters__product-service__Destinations__product-service-1__Address=http://product-service:5001
-            - ReverseProxy__Clusters__counter-service__Destinations__counter-service-1__Address=http://counter-service:5002
+            #- ReverseProxy__Clusters__product-service__Destinations__product-service-1__Address=http://product-service:5001
+            #- ReverseProxy__Clusters__counter-service__Destinations__counter-service-1__Address=http://counter-service:5002
             - UseTracingExporter=otlp
             - UseMetricsExporter=otlp
             - UseLogExporter=otlp
             - AspNetCoreInstrumentation__RecordException=true
             - Otlp__Endpoint=http://otel-collector:4317
-            - eureka__client__serviceUrl=http://eureka-server:8761/eureka
+            - Eureka__Client__ServiceUrl=http://eureka-server:8761/eureka
         ports:
             - "5000:5000"
         depends_on:

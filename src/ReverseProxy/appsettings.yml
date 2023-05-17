@@ -3,6 +3,7 @@ ReverseProxy:
     Routes:
         product-service:
             ClusterId: product-service
+            AuthorizationPolicy: myPolicy
             Match:
                 Path: 'product-api/{**remainder}'
             Transforms:
@@ -12,6 +13,7 @@ ReverseProxy:
                   
         counter-service:
             ClusterId: counter-service
+            AuthorizationPolicy: myPolicy
             Match:
                 Path: 'counter-api/{**remainder}'
             Transforms:

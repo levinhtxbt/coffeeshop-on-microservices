@@ -58,3 +58,16 @@ Control plane UI:
 - ElasticSearch UI: [http://localhost:5601](http://localhost:5601)
 
 Using [client.http](client.http) to explore the application!
+
+
+# Troubleshooting
+
+## Couldn't run `sebp/elk:latest` on Docker (Windows 11 - WSL2 with Docker for Desktop integrated)
+
+> error: elasticsearch_1  | max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+
+Jump into wsl2, then run command below
+
+```
+$ sudo sysctl -w vm.max_map_count=262144
+```

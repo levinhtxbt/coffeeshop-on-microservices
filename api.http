@@ -1,17 +1,23 @@
 @host = http://localhost:5000
+### Get token
+# dotnet user-jwts create --claim "myCustomClaim=green"
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkxldmluIiwic3ViIjoiTGV2aW4iLCJqdGkiOiIzYTFhYjQ5YSIsIm15Q3VzdG9tQ2xhaW0iOiJncmVlbiIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCIsIm5iZiI6MTY4NDE2NTc2OCwiZXhwIjoxNjkyMTE0NTY4LCJpYXQiOjE2ODQxNjU3NjgsImlzcyI6ImRvdG5ldC11c2VyLWp3dHMifQ.06e4Hvl8hhb3srMVTZ5vdwm2gp4HHAt5JOyR8O8gQik
 
 ###
 GET {{host}}/product-api/v1/api/item-types HTTP/1.1
 content-type: application/json
+Authorization: Bearer {{token}}
 
 ###
 GET {{host}}/product-api/v1/api/items-by-types/1,2,3 HTTP/1.1
 content-type: application/json
+Authorization: Bearer {{token}}
 
 
 ###
 POST {{host}}/counter-api/v1/api/orders HTTP/1.1
 content-type: application/json
+Authorization: Bearer {{token}}
 
 {
   "commandType": 0,
@@ -37,3 +43,4 @@ content-type: application/json
 ###
 GET {{host}}/counter-api/v1/api/fulfillment-orders HTTP/1.1
 content-type: application/json
+Authorization: Bearer {{token}}
